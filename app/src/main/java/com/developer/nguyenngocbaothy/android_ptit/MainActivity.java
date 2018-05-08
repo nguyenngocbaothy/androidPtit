@@ -5,21 +5,31 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnMap, btnEmail;
+    FloatingActionButton fabSharing;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnMap = (Button) findViewById(R.id.btnMap);
         btnEmail = (Button) findViewById(R.id.btnEmail);
+        fabSharing = (FloatingActionButton) findViewById(R.id.fabSharing);
 
-        pushNotification();
+        // animation float button sharing
+        Animation animFloatButtonSharing = AnimationUtils.loadAnimation(this, R.anim.anim_floatbuttonsharing);
+        fabSharing.startAnimation(animFloatButtonSharing);
+
+        //pushNotification();
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        fabSharing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String shareBody = "your body here";
+                String shareSub = "your subject here";
+                intent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(intent, "Sharing via:"));
+            }
+        });
     }
 
     public void pushNotification() {
@@ -50,4 +73,6 @@ public class MainActivity extends AppCompatActivity {
 //        notify.flags |= Notification.FLAG_AUTO_CANCEL;
         notif.notify(0, notify);
     }
+
+
 }
