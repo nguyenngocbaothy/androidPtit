@@ -31,7 +31,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MapActivity" />
-        <activity android:name=".EmailActivity"></activity>
+        <activity android:name=".EmailActivity" />
+        <activity android:name=".PaymentActivity"></activity>
     </application>
 
 </manifest>

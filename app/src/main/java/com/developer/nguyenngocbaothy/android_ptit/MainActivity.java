@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnMap, btnEmail;
+    Button btnMap, btnEmail, btnPayment;
     FloatingActionButton fabSharing;
 
     @Override
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         btnMap = (Button) findViewById(R.id.btnMap);
         btnEmail = (Button) findViewById(R.id.btnEmail);
         fabSharing = (FloatingActionButton) findViewById(R.id.fabSharing);
+        btnPayment = (Button) findViewById(R.id.btnPayment);
 
         // animation float button sharing
         Animation animFloatButtonSharing = AnimationUtils.loadAnimation(this, R.anim.anim_floatbuttonsharing);
@@ -57,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
                 intent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(intent, "Sharing via:"));
+            }
+        });
+
+        btnPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, PaymentActivity.class);
+                startActivity(i);
             }
         });
     }

@@ -54,4 +54,23 @@
     </android.support.design.widget.CoordinatorLayout></code></pre>
 - add infomation to function in MainActivity with animation
 
+5. Payment
+- add lib:  compile 'com.craftman.cardform:cardform:0.0.2'
+- in xml: 
+<pre><code>
+	<com.craftman.cardform.CardForm
+        android:id="@+id/cardform"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp">
+    </com.craftman.cardform.CardForm>
+</code></pre>
+- add money in here:  txtDes.setText("$" + "1000");
 	
