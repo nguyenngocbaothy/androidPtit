@@ -74,3 +74,14 @@
 </code></pre>
 - add money in here:  txtDes.setText("$" + "1000");
 	
+6. Sliding tap using view pager
+- install lib: 
+  File -> Project structure -> app (Modules) -> tap Dependencies -> + button
+  search lib: design -> ok -> ok
+
+- Create new blank fragment for each tap
+- Create new class Pager
+- In res folder -> values -> styles.xml -> change style
+- Change xml file of each tap to RelativeLayout
+- Change main.xml file that contain tap like activity_tab.xml file
+- Change the mainActivity like TabActivity.java

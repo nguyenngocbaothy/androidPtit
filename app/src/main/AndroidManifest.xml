@@ -32,7 +32,8 @@
         </activity>
         <activity android:name=".MapActivity" />
         <activity android:name=".EmailActivity" />
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".TabActivity"></activity>
     </application>
 
 </manifest>
